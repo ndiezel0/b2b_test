@@ -1,0 +1,23 @@
+<mat-grid-list cols="1" rowHeight="100">
+  <mat-grid-tile>
+    <mat-form-field>
+      <input matInput placeholder="Search" [matAutocomplete]="auto" (input)="onTextInput($event)">
+    </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="searchRes" (optionSelected)="onAutocomplete($event)">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option.Title}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-grid-tile>
+  <mat-grid-tile [rowspan]="7">
+    <div *ngIf="selected">
+      <button mat-raised-button (click)="addSelectedToList()">Add</button><br>
+      <button mat-raised-button (click)="showExtraSelectedInfo()">Details</button><br>
+      Title: {{selected.Title}}<br>
+      Type: {{selected.Type}}<br>
+      Year: {{selected.Year}}<br>
+      IMDb: {{selected.imdbID}}<br>
+      Poster: <img [src]="selected.Poster">
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,24 @@
+<mat-grid-list cols="1" rowHeight="50">
+  <mat-grid-tile>
+    Title: {{data.Title}}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    Genre: {{data.Genre}}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    IMDb rating: {{data.imdbRating}}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    IMDb votes: {{data.imdbVotes}}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    Plot: {{data.Plot}}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    Director: {{data.Director}}
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-raised-button (click)="onCloseClick()">Close</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
