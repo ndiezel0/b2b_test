@@ -4,6 +4,7 @@ import {OMDbService} from '../services/omdb.service';
 import {SearchResult} from '../models/search-result';
 import {MatAutocompleteSelectedEvent} from '@angular/material';
 import {MovieDetailService} from '../services/movie-detail.service';
+import {MovieListService} from '../services/movie-list.service';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,9 @@ export class SearchComponent implements OnInit {
 
   public selected: SearchResult = null;
 
-  constructor(private omdb: OMDbService, private mdetail: MovieDetailService) { }
+  constructor(private omdb: OMDbService,
+              private mdetail: MovieDetailService,
+              private list: MovieListService) { }
 
   ngOnInit() {
   }
@@ -47,8 +50,8 @@ export class SearchComponent implements OnInit {
     this.selected = event.option.value;
   }
 
-  public addSelectedToList(){
-
+  public addSelectedToList() {
+    this.list.addMovie(this.selected);
   }
 
   public showExtraSelectedInfo(){
